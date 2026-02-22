@@ -10,7 +10,9 @@ function Menu() {
   return (
     <div>
       <h1>Меню</h1>
-      {products.map((p, i) => <ProductCard key={i} {...p} />)}
+      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+        {products.map((p, i) => <ProductCard key={i} {...p} />)}
+      </div>
     </div>
   );
 }
