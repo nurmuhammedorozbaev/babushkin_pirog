@@ -17,6 +17,7 @@ function Navbar() {
 
   const logout = () => {
     localStorage.removeItem("isAuth");
+    localStorage.removeItem("user");
     setIsAuth(false);
     window.location.href = "/";
   };
@@ -32,8 +33,9 @@ function Navbar() {
       <h2>Бабушкин пирог 🍰</h2>
 
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <Link to="/">Главная</Link>
-        <Link to="/menu">Меню</Link>
+        <Link to="/" style={{ color: "white" }}>Главная</Link>
+        <Link to="/menu" style={{ color: "white" }}>Меню</Link>
+        <Link to="/contacts" style={{ color: "white" }}>Контакты</Link>
 
         {isAuth ? (
           <>
@@ -42,8 +44,8 @@ function Navbar() {
           </>
         ) : (
           <>
-            <Link to="/login">Войти</Link>
-            <Link to="/register">Регистрация</Link>
+            <Link to="/login" style={{ color: "white" }}>Войти</Link>
+            <Link to="/register" style={{ color: "white" }}>Регистрация</Link>
           </>
         )}
       </div>

@@ -3,8 +3,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Contacts from "./pages/Contacts";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/login";       // <-- исправлено
+import Register from "./pages/register";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
