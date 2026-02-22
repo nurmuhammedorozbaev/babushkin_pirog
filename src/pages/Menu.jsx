@@ -1,12 +1,16 @@
 import ProductCard from "../components/ProductCard";
 
 function Menu() {
+  const products = [
+    { title: "Яблочный пирог", price: 350 },
+    { title: "Шоколадный пирог", price: 400 },
+    { title: "Сырник", price: 250 }
+  ];
+
   return (
     <div>
       <h1>Меню</h1>
-      <ProductCard title="Шоколадный торт" price="1200" />
-      <ProductCard title="Яблочный пирог" price="800" />
-      <ProductCard title="Медовик" price="1000" />
+      {products.map((p, i) => <ProductCard key={i} {...p} />)}
     </div>
   );
 }

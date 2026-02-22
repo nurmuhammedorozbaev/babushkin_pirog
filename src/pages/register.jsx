@@ -5,28 +5,26 @@ function Register() {
   const [password, setPassword] = useState("");
 
   const handleRegister = () => {
-    localStorage.setItem("user", JSON.stringify({ email, password }));
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.find(u => u.email === email)) {
+      alert("Такой пользователь уже есть ❌");
+      return;
+    }
+
+    const newUser = { email, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
     alert("Регистрация успешна ✅");
     window.location.href = "/login";
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
+    <div>
       <h2>Регистрация</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{ width: "100%", marginBottom: "10px", padding: "10px" }}
-      />
-      <input
-        type="password"
-        placeholder="Пароль"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        style={{ width: "100%", marginBottom: "10px", padding: "10px" }}
-      />
+      <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+      <input type="password" placeholder="Пароль" value={password} onChange={e => setPassword(e.target.value)} />
       <button onClick={handleRegister}>Зарегистрироваться</button>
     </div>
   );
